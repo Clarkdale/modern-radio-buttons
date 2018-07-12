@@ -9,7 +9,9 @@ Similar to this horizontal layout, these buttons can also be layed out verticall
 ![Alt text](images/Vertical.png?raw=true "Vertical")
 
 ## Installatoin
-TBD
+1. Install using npm or yarn (`npm i modern-radio-buttons`)
+2. Import using `import RadioSet from 'modern-radio-buttons'`
+3. Use throughout project
 
 ## Usage
 The given code snippet demonstrates how to utilize the `RadioSet` module in another component.
