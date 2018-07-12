@@ -1,6 +1,6 @@
 {
   "name": "modern-radio-buttons",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Radio buttons so clean that they could end up in an Andy Warhol piece",
   "main": "build/index.js",
   "peerDependencies": {
