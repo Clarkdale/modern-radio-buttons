@@ -160,7 +160,7 @@ var RadioSet = function (_Component2) {
       horizontal: props.horizontal,
       fill: props.fill,
       blank: props.blank,
-      size: props.size
+      size: props.size || "32px"
     };
     return _this2;
   }

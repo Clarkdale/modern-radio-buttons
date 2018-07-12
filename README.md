@@ -47,3 +47,24 @@ class App extends Component {
 
 export default App;
 ```
+
+## API
+
+### props
+#### selectedIndex: int
+The index of the value you want to be initially selected. Defaults to the first value if not specified.
+
+#### options: string []
+An array of strings that will generate the labels and values associated with radio buttons.
+
+#### horizontal: boolean
+A boolean that dictates whether the flow of buttons is vertical or Horizontal
+
+#### fill: image
+An image that should be included as the "checked" designator for buttons
+
+#### blank: image
+an image that should be included as the "blank" designator for buttons
+
+#size: px, em, etc.
+The size of the radio buttons. Default is 32px

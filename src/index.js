@@ -39,7 +39,7 @@ class RadioSet extends Component{
       horizontal: props.horizontal,
       fill: props.fill,
       blank: props.blank,
-      size: props.size,
+      size: props.size || "32px",
     };
   }
 
