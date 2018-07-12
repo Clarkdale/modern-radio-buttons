@@ -66,5 +66,5 @@ An image that should be included as the "checked" designator for buttons
 #### blank: image
 an image that should be included as the "blank" designator for buttons
 
-#size: px, em, etc.
+#### size: px, em, etc.
 The size of the radio buttons. Default is 32px
