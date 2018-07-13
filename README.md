@@ -8,7 +8,7 @@ The use of these radio buttons allow the user to input their own images as the b
 Similar to this horizontal layout, these buttons can also be layed out vertically, as displayed in another image below.
 ![Alt text](images/Vertical.png?raw=true "Vertical")
 
-## Installatoin
+## Installation
 1. Install using npm or yarn (`npm i modern-radio-buttons`)
 2. Import using `import RadioSet from 'modern-radio-buttons'`
 3. Use throughout project

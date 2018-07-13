@@ -35,6 +35,7 @@ class RadioSet extends Component{
     super(props);
     this.state = {
       selectedIndex: props.defaultIndex || 0,
+      selectedValue: props.options[props.defaultIndex || 0],
       options: props.options,
       horizontal: props.horizontal,
       fill: props.fill,
@@ -46,6 +47,7 @@ class RadioSet extends Component{
   toggle(selection){
     this.setState({
       selectedIndex: selection,
+      selectedValue: this.state.options[selection],
     });
   }
 
