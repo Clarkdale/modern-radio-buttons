@@ -1,6 +1,6 @@
 {
   "name": "modern-radio-buttons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Radio buttons so clean that they could end up in an Andy Warhol piece",
   "main": "build/index.js",
   "peerDependencies": {
@@ -26,5 +26,23 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.5.1"
-  }
+  },
+  "license": "LGPL-3.0",
+  "homepage": "https://github.com/Clarkdale/modern-radio-buttons",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Clarkdale/modern-radio-buttons.git"
+  },
+  "keywords": [
+    "facebook",
+    "react",
+    "radio",
+    "radio-group",
+    "component",
+    "react",
+    "react-component",
+    "radio-button",
+    "custom",
+    "customizable"
+  ]
 }
