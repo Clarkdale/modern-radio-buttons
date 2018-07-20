@@ -10,11 +10,29 @@ class RadioBtn extends Component{
   }
 
   render() {
+    let button;
+    if (this.props.color) {
+      button = <svg width="24px" height="24px" style={{display: 'inline-block', padding: '6px 8px 8px 8px'}}>
+                  <circle
+                    cx="12px"
+                    cy="12px"
+                    r="10px"
+                    fill={ this.props.isChecked ? this.props.color : "transparent" }
+                    stroke={ this.props.color }
+                    stroke-width="3px"
+                  />
+                </svg>
+    } else {
+      button = <img src={ this.props.isChecked ? this.props.fill : this.props.blank }
+                style={{ padding: '6px 8px 8px 8px', width: this.props.size, height: this.props.size, display: 'inline-block' }}
+               />
+    }
+
     if (this.props.horizontal) {
       return (
         <span className="radio-btn-group" onClick={this.handleClick.bind(this)}>
           <span className={this.props.isChecked ? "radiobtn checked" : "radiobtn unchecked"} data-value={this.props.value}></span>
-          <img src={ this.props.isChecked ? this.props.fill : this.props.blank } style={{ padding: '8px', width: this.props.size, height: this.props.size }}/>
+          {button}
           <label style={{ position: 'relative', top:'-17px', padding: '0 15px 0 0'}}>{this.props.text}</label>
         </span>
       );
@@ -22,18 +40,7 @@ class RadioBtn extends Component{
       return (
         <div className="radio-btn-group" onClick={this.handleClick.bind(this)}>
           <div className={this.props.isChecked ? "radiobtn checked" : "radiobtn unchecked"} data-value={this.props.value}></div>
-          <svg width="24px" height="24px" style={{position: 'absolute', padding: '6px 0 0 8px'}}>
-            <circle
-              cx="12px"
-              cy="12px"
-              r="10px"
-              fill={ this.props.isChecked ? "black" : "transparent" }
-              stroke="black"
-              stroke-width="3px"
-              opacity={ this.props.color ? "1" : "1" }
-            />
-          </svg>
-          <img src={ this.props.isChecked ? this.props.fill : this.props.blank } style={{ padding: '6px 8px 8px 8px', width: this.props.size, height: this.props.size, display: 'inline-block' }}/>
+          {button}
           <label style={{ position: 'relative', top:'-18px', display: 'inline-block' }}>{this.props.text}</label>
         </div>
       );

@@ -115,12 +115,32 @@ var RadioBtn = function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var button = void 0;
+      if (this.props.color) {
+        button = _react2.default.createElement(
+          "svg",
+          { width: "24px", height: "24px", style: { display: 'inline-block', padding: '6px 8px 8px 8px' } },
+          _react2.default.createElement("circle", {
+            cx: "12px",
+            cy: "12px",
+            r: "10px",
+            fill: this.props.isChecked ? this.props.color : "transparent",
+            stroke: this.props.color,
+            "stroke-width": "3px"
+          })
+        );
+      } else {
+        button = _react2.default.createElement("img", { src: this.props.isChecked ? this.props.fill : this.props.blank,
+          style: { padding: '6px 8px 8px 8px', width: this.props.size, height: this.props.size, display: 'inline-block' }
+        });
+      }
+
       if (this.props.horizontal) {
         return _react2.default.createElement(
           "span",
           { className: "radio-btn-group", onClick: this.handleClick.bind(this) },
           _react2.default.createElement("span", { className: this.props.isChecked ? "radiobtn checked" : "radiobtn unchecked", "data-value": this.props.value }),
-          _react2.default.createElement("img", { src: this.props.isChecked ? this.props.fill : this.props.blank, style: { padding: '8px', width: this.props.size, height: this.props.size } }),
+          button,
           _react2.default.createElement(
             "label",
             { style: { position: 'relative', top: '-17px', padding: '0 15px 0 0' } },
@@ -132,20 +152,7 @@ var RadioBtn = function (_Component) {
           "div",
           { className: "radio-btn-group", onClick: this.handleClick.bind(this) },
           _react2.default.createElement("div", { className: this.props.isChecked ? "radiobtn checked" : "radiobtn unchecked", "data-value": this.props.value }),
-          _react2.default.createElement(
-            "svg",
-            { width: "24px", height: "24px", style: { position: 'absolute', padding: '6px 0 0 8px' } },
-            _react2.default.createElement("circle", {
-              cx: "12px",
-              cy: "12px",
-              r: "10px",
-              fill: this.props.isChecked ? "black" : "transparent",
-              stroke: "black",
-              "stroke-width": "3px",
-              opacity: this.props.color ? "1" : "1"
-            })
-          ),
-          _react2.default.createElement("img", { src: this.props.isChecked ? this.props.fill : this.props.blank, style: { padding: '6px 8px 8px 8px', width: this.props.size, height: this.props.size, display: 'inline-block' } }),
+          button,
           _react2.default.createElement(
             "label",
             { style: { position: 'relative', top: '-18px', display: 'inline-block' } },
@@ -172,8 +179,8 @@ var RadioSet = function (_Component2) {
       selectedValue: props.options[props.defaultIndex || 0],
       options: props.options,
       horizontal: props.horizontal,
-      fill: props.filly,
-      blank: props.blanky,
+      fill: props.fill,
+      blank: props.blank,
       color: props.color,
       size: props.size || "32px"
     };
