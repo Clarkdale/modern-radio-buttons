@@ -132,7 +132,20 @@ var RadioBtn = function (_Component) {
           "div",
           { className: "radio-btn-group", onClick: this.handleClick.bind(this) },
           _react2.default.createElement("div", { className: this.props.isChecked ? "radiobtn checked" : "radiobtn unchecked", "data-value": this.props.value }),
-          _react2.default.createElement("img", { src: this.props.isChecked ? this.props.fill : this.props.blank, style: { padding: '8px', width: this.props.size, height: this.props.size, display: 'inline-block' } }),
+          _react2.default.createElement(
+            "svg",
+            { width: "24px", height: "24px", style: { position: 'absolute', padding: '6px 0 0 8px' } },
+            _react2.default.createElement("circle", {
+              cx: "12px",
+              cy: "12px",
+              r: "10px",
+              fill: this.props.isChecked ? "black" : "transparent",
+              stroke: "black",
+              "stroke-width": "3px",
+              opacity: this.props.color ? "1" : "1"
+            })
+          ),
+          _react2.default.createElement("img", { src: this.props.isChecked ? this.props.fill : this.props.blank, style: { padding: '6px 8px 8px 8px', width: this.props.size, height: this.props.size, display: 'inline-block' } }),
           _react2.default.createElement(
             "label",
             { style: { position: 'relative', top: '-18px', display: 'inline-block' } },
@@ -156,10 +169,12 @@ var RadioSet = function (_Component2) {
 
     _this2.state = {
       selectedIndex: props.defaultIndex || 0,
+      selectedValue: props.options[props.defaultIndex || 0],
       options: props.options,
       horizontal: props.horizontal,
-      fill: props.fill,
-      blank: props.blank,
+      fill: props.filly,
+      blank: props.blanky,
+      color: props.color,
       size: props.size || "32px"
     };
     return _this2;
@@ -169,7 +184,8 @@ var RadioSet = function (_Component2) {
     key: "toggle",
     value: function toggle(selection) {
       this.setState({
-        selectedIndex: selection
+        selectedIndex: selection,
+        selectedValue: this.state.options[selection]
       });
     }
   }, {
@@ -183,12 +199,13 @@ var RadioSet = function (_Component2) {
         this.state.options.map(function (option, i) {
           return _react2.default.createElement(RadioBtn, {
             key: i,
-            isChecked: _this3.state.selectedIndex == i,
+            isChecked: _this3.state.selectedIndex === i,
             text: option,
             value: option,
             index: i,
             handler: _this3.toggle.bind(_this3),
             horizontal: _this3.state.horizontal,
+            color: _this3.state.color,
             fill: _this3.state.fill,
             blank: _this3.state.blank,
             size: _this3.props.size
