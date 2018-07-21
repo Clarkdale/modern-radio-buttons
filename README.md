@@ -71,8 +71,8 @@ an image that should be included as the "blank" designator for buttons
 #### size: int
 The size of the radio buttons.
 
-####color: string
+#### color: string
 the color of the default circle button that will be used
 
-####useImages: boolean
+#### useImages: boolean
 a boolean that will dictate if images will be used, or if the default circle svg's will be used in place of images
