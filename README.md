@@ -2,7 +2,7 @@
 `RadioSet` is a react component that allows the user to customize their radio buttons through images for a better user experience, while still getting the same functionality.
 
 ## Visuals
-The use of these radio buttons allow the user to input their own images as the blank and checked radio buttons, in a layout they feel is necessary for their project. Below is an example of these radio buttons in a horizontal layout with svg files customized for this example.
+The use of these radio buttons allow the user to input their own images as the blank and checked radio buttons, or use default circle svg's, in a layout they feel is necessary for their project. Below is an example of these radio buttons in a horizontal layout with svg files customized for this example.
 ![Alt text](images/Horizontal.png?raw=true "Horizontal")
 
 Similar to this horizontal layout, these buttons can also be layed out vertically, as displayed in another image below.
@@ -53,7 +53,7 @@ export default App;
 ## API
 
 ### props
-#### selectedIndex: int
+#### defaultIndex: int
 The index of the value you want to be initially selected. Defaults to the first value if not specified.
 
 #### options: string []
@@ -68,5 +68,11 @@ An image that should be included as the "checked" designator for buttons
 #### blank: image
 an image that should be included as the "blank" designator for buttons
 
-#### size: px, em, etc.
-The size of the radio buttons. Default is 32px
+#### size: int
+The size of the radio buttons.
+
+####color: string
+the color of the default circle button that will be used
+
+####useImages: boolean
+a boolean that will dictate if images will be used, or if the default circle svg's will be used in place of images

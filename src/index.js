@@ -3,6 +3,11 @@ import React, { Component } from 'react'
 class RadioBtn extends Component{
   constructor(props) {
     super(props);
+    this.state = {
+      radius: props.size / 2,
+      stroke: props.size / 3,
+      font: props.size * 2 / 3
+    }
   }
 
   handleClick(){
@@ -11,15 +16,15 @@ class RadioBtn extends Component{
 
   render() {
     let button;
-    if (this.props.color) {
-      button = <svg width="24px" height="24px" style={{display: 'inline-block', padding: '6px 8px 8px 8px'}}>
+    if (!this.props.useImages) {
+      button = <svg width={ this.props.size } height={ this.props.size } style={{display: 'inline-block', padding: '6px 8px 8px 8px'}}>
                   <circle
-                    cx="12px"
-                    cy="12px"
-                    r="10px"
+                    cx={ this.state.radius }
+                    cy={ this.state.radius }
+                    r={ this.state.radius }
                     fill={ this.props.isChecked ? this.props.color : "transparent" }
                     stroke={ this.props.color }
-                    stroke-width="3px"
+                    strokeWidth={ 3 }
                   />
                 </svg>
     } else {
@@ -33,7 +38,7 @@ class RadioBtn extends Component{
         <span className="radio-btn-group" onClick={this.handleClick.bind(this)}>
           <span className={this.props.isChecked ? "radiobtn checked" : "radiobtn unchecked"} data-value={this.props.value}></span>
           {button}
-          <label style={{ position: 'relative', top:'-17px', padding: '0 15px 0 0'}}>{this.props.text}</label>
+          <label style={{ fontSize: this.state.radius, position: 'relative', bottom: this.state.radius, padding: '0 15px 0 0'}}>{this.props.text}</label>
         </span>
       );
     } else {
@@ -41,7 +46,7 @@ class RadioBtn extends Component{
         <div className="radio-btn-group" onClick={this.handleClick.bind(this)}>
           <div className={this.props.isChecked ? "radiobtn checked" : "radiobtn unchecked"} data-value={this.props.value}></div>
           {button}
-          <label style={{ position: 'relative', top:'-18px', display: 'inline-block' }}>{this.props.text}</label>
+          <label style={{ fontSize: this.props.size, position: 'relative', bottom: this.state.radius, display: 'inline-block' }}>{this.props.text}</label>
         </div>
       );
     }
@@ -58,8 +63,9 @@ class RadioSet extends Component{
       horizontal: props.horizontal,
       fill: props.fill,
       blank: props.blank,
-      color: props.color,
+      color: props.color || "#b3c1cb",
       size: props.size || "32px",
+      useImages: props.useImages || false,
     };
   }
 
@@ -85,7 +91,8 @@ class RadioSet extends Component{
                     color={ this.state.color }
                     fill={ this.state.fill }
                     blank={ this.state.blank }
-                    size={ this.props.size }
+                    size={ this.state.size }
+                    useImages={ this.state.useImages }
                   />
         })}
       </div>
